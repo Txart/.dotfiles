@@ -8,8 +8,8 @@ alias t='todo.sh'
 alias cd='z'
 alias zz='z -'
 
-# ls -> exa
-alias ls='exa --long'
+# ls -> eza
+alias ls='eza --long'
 
 # lazygit -> gg
 alias gg='lazygit'
