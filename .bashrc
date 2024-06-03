@@ -127,13 +127,13 @@ PATH=$PATH:"$HOME/software/todo.txt"
 export TODOTXT_DEFAULT_ACTION=ls
 
 # Add texlive to PATH
-MANPATH=$MANPATH:"/home/txart/software/texlive/2023/texmf-dist/doc/man"
-INFOPATH=$INFOPATH:"/home/txart/software/texlive/2023/texmf-dist/doc/info"
-PATH=$PATH:"/home/txart/software/texlive/2023/bin/x86_64-linux"
+MANPATH=$MANPATH:"$HOME/software/texlive/2023/texmf-dist/doc/man"
+INFOPATH=$INFOPATH:"$HOME/software/texlive/2023/texmf-dist/doc/info"
+PATH=$PATH:"$HOME/software/texlive/2023/bin/x86_64-linux"
 . "$HOME/.cargo/env"
 
 # zoxide
-PATH=$PATH:"/home/txart/.local/bin"
+PATH=$PATH:"$HOME/.local/bin"
 eval "$(zoxide init bash)"
 
 # fzf
@@ -143,14 +143,13 @@ eval "$(zoxide init bash)"
 PATH=$PATH:"$HOME/projects/rodomopo/target/release"
 
 # ollama
-PATH=$PATH:"/home/txart/software/ollama/bin"
+PATH=$PATH:"$HOME/software/ollama/bin"
 # change directory for ollama llm models
-export OLLAMA_MODELS="/home/txart/software/ollama-models"
+export OLLAMA_MODELS="$HOME/software/ollama-models"
 
 # alacritty
-PATH=$PATH:"/home/txart/software/alacritty/target/release"
-source /home/txart/software/alacritty/extra/completions/alacritty.bash
+PATH=$PATH:"$HOME/software/alacritty/target/release"
+source $HOME/software/alacritty/extra/completions/alacritty.bash
 
 # zellij
-PATH=$PATH:"/home/txart/software/zellij"
-
+PATH=$PATH:"$HOME/software/zellij"
