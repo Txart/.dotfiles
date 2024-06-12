@@ -11,6 +11,7 @@ return {
 		vim.g.slime_config_defaults = { python_ipython = 1, dispatch_ipython_pause = 100 }
 		vim.g.slime_debug = 0
 		vim.g.slime_preserve_curpos = 1
+
 		function _EscapeText_python(text)
 			local function resolve(key)
 				return vim.g.slime_config_defaults[key]
