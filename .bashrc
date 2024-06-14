@@ -103,6 +103,7 @@ fi
 # Azti specific files
 if [ -f ~/.bash_azti ]; then
 	. ~/.bash_azti
+	. ~/.pass-bash-completion
 fi
 
 

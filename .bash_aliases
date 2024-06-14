@@ -20,3 +20,5 @@ alias gg='lazygit'
 alias rm='rm -i'
 alias rmtt='gio trash'
 
+# Default pass to copy to clipboard
+alias pass='pass -c'
