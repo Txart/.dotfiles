@@ -19,6 +19,3 @@ alias gg='lazygit'
 # - Move file to system trash with the command `rmtt` "ReMove To Trash"
 alias rm='rm -i'
 alias rmtt='gio trash'
-
-# Default pass to copy to clipboard
-alias pass='pass -c'
