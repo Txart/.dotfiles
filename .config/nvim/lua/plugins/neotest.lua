@@ -20,6 +20,7 @@ return {
 			desc = "Run current tests file with neotest",
 		},
 		{ "<leader>ts", ":Neotest summary<CR>", desc = "Show test summary" },
+		{ "<leader>tp", ":Neotest output-panel<CR>", desc = "Show tests in a separate pane" },
 		{ "<leader>to", ":Neotest output<CR>", desc = "Show test output pane" },
 		{
 			"[t",
