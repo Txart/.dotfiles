@@ -154,3 +154,6 @@ source $HOME/software/alacritty/extra/completions/alacritty.bash
 
 # zellij
 PATH=$PATH:"$HOME/software/zellij"
+
+# go
+export PATH=$PATH:/usr/local/go/bin
