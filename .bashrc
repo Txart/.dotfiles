@@ -141,7 +141,7 @@ eval "$(zoxide init bash)"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # add rodomopo to path
-PATH=$PATH:"$HOME/projects/rodomopo/target/release"
+PATH=$PATH:"$HOME/software/rodomopo/target/release"
 
 # ollama
 PATH=$PATH:"$HOME/software/ollama/bin"

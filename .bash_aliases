@@ -19,3 +19,5 @@ alias gg='lazygit'
 # - Move file to system trash with the command `rmtt` "ReMove To Trash"
 alias rm='rm -i'
 alias rmtt='gio trash'
+
+alias nvim-quarto="NVIM_APPNAME=quarto-nvim-kickstarter nvim"
