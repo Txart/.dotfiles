@@ -116,7 +116,6 @@ return { -- LSP Configuration & Plugins
 				end
 			end,
 		})
-
 		-- LSP servers and clients are able to communicate to each other what features they support.
 		--  By default, Neovim doesn't support everything that is in the LSP specification.
 		--  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
@@ -139,12 +138,37 @@ return { -- LSP Configuration & Plugins
 			rust_analyzer = {},
 			ruff = {},
 			ruff_lsp = {},
-			-- mypy = {},
+			pyright = {
+				settings = {
+					python = {
+						analysis = {
+							-- Disable all pyright diagnostics
+							diagnosticMode = "off",
+							-- Still keep type checking for completions
+							useLibraryCodeForTypes = true,
+							-- Disable import checking in Pyright
+							diagnosticSeverityOverrides = {
+								reportMissingImports = "none",
+								reportUnusedImport = "none",
+							},
+						},
+					},
+				},
+			},
 			pylsp = {
 				plugins = {
 					pyflakes = { enabled = false },
 					pylint = { enabled = false },
 					pycodestyle = { enabled = false },
+					mccabe = { enabled = false },
+					flake8 = { enabled = false },
+					jedi_completion = { enabled = true },
+					jedi_hover = { enabled = true },
+					jedi_references = { enabled = true },
+					jedi_signature_help = { enabled = true },
+					jedi_symbols = { enabled = true },
+					-- Enable Python rope for refactoring
+					rope_completion = { enabled = true },
 				},
 			},
 			-- jqls = {
@@ -159,7 +183,6 @@ return { -- LSP Configuration & Plugins
 			-- But for many setups, the LSP (`tsserver`) will work just fine
 			-- tsserver = {},
 			--
-
 			lua_ls = {
 				-- cmd = {...},
 				-- filetypes = { ...},
@@ -189,6 +212,9 @@ return { -- LSP Configuration & Plugins
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
 			"stylua", -- Used to format Lua code
+			"pyright", -- Python type checker
+			"black", -- Python formatter
+			"isort", -- Python import sorter
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
