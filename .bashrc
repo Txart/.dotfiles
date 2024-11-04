@@ -155,5 +155,6 @@ source $HOME/software/alacritty/extra/completions/alacritty.bash
 # zellij
 PATH=$PATH:"$HOME/software/zellij"
 
-# go
+# golang
 export PATH=$PATH:/usr/local/go/bin
+export LEDGER_FILE=~/areas/dirus/2024.journal
