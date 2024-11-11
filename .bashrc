@@ -158,3 +158,5 @@ PATH=$PATH:"$HOME/software/zellij"
 # golang
 export PATH=$PATH:/usr/local/go/bin
 export LEDGER_FILE=~/areas/dirus/2024.journal
+
+
