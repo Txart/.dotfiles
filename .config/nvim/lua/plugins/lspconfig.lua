@@ -143,9 +143,11 @@ return { -- LSP Configuration & Plugins
 					python = {
 						analysis = {
 							-- Disable all pyright diagnostics
-							diagnosticMode = "off",
+							-- diagnosticMode = "off",
 							-- Still keep type checking for completions
 							useLibraryCodeForTypes = true,
+							autoSearchPaths = true,
+							typeCheckingMode = "basic",
 							-- Disable import checking in Pyright
 							diagnosticSeverityOverrides = {
 								reportMissingImports = "none",
@@ -155,22 +157,22 @@ return { -- LSP Configuration & Plugins
 					},
 				},
 			},
-			pylsp = {
-				plugins = {
-					pyflakes = { enabled = false },
-					pylint = { enabled = false },
-					pycodestyle = { enabled = false },
-					mccabe = { enabled = false },
-					flake8 = { enabled = false },
-					jedi_completion = { enabled = true },
-					jedi_hover = { enabled = true },
-					jedi_references = { enabled = true },
-					jedi_signature_help = { enabled = true },
-					jedi_symbols = { enabled = true },
-					-- Enable Python rope for refactoring
-					rope_completion = { enabled = true },
-				},
-			},
+			-- pylsp = {
+			-- 	plugins = {
+			-- 		pyflakes = { enabled = false },
+			-- 		pylint = { enabled = false },
+			-- 		pycodestyle = { enabled = false },
+			-- 		mccabe = { enabled = false },
+			-- 		flake8 = { enabled = false },
+			-- 		jedi_completion = { enabled = true },
+			-- 		jedi_hover = { enabled = true },
+			-- 		jedi_references = { enabled = true },
+			-- 		jedi_signature_help = { enabled = true },
+			-- 		jedi_symbols = { enabled = true },
+			-- 		-- Enable Python rope for refactoring
+			-- 		rope_completion = { enabled = true },
+			-- 	},
+			-- },
 			-- jqls = {
 			-- 	filetypes = { "json", "json5", "jsonc" },
 			-- 	cmd = { "jq-lsp" },
