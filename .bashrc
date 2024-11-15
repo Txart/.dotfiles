@@ -124,6 +124,8 @@ export EDITOR=nvim
 
 # Todo.txt
 PATH=$PATH:"$HOME/software/todo.txt"
+# make autocomplete available since I have aliased it
+complete -F _todo t
 # Executing todo.sh lists the elements by default
 export TODOTXT_DEFAULT_ACTION=ls
 
