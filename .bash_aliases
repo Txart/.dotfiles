@@ -20,4 +20,6 @@ alias gg='lazygit'
 alias rm='rm -i'
 alias rmtt='gio trash'
 
+# different neovim configs
 alias nvim-quarto="NVIM_APPNAME=quarto-nvim-kickstarter nvim"
+alias nvimw="NVIM_APPNAME=nvim-writer nvim"
