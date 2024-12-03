@@ -22,4 +22,4 @@ alias rmtt='gio trash'
 
 # different neovim configs
 alias nvim-quarto="NVIM_APPNAME=quarto-nvim-kickstarter nvim"
-alias nvimw="NVIM_APPNAME=nvim-writer nvim"
+alias nw="NVIM_APPNAME=nvim-writer nvim -c 'normal \`0'" # The strange thing at the end opens last file 
