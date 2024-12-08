@@ -27,4 +27,8 @@ return {
 
 		-- see below for full list of options 👇
 	},
+
+	keys = {
+		{ "<leader>ff", ":ObsidianSearch<cr>", desc = "[F]ind Obsidian [F]iles" },
+	},
 }
