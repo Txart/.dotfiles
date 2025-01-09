@@ -135,9 +135,11 @@ return { -- LSP Configuration & Plugins
 		local servers = {
 			-- clangd = {},
 			gopls = {},
+			zls = {},
 			rust_analyzer = {},
+			html = { filetypes = { "html" } },
+			cssls = {},
 			ruff = {},
-			ruff_lsp = {},
 			pyright = {
 				settings = {
 					python = {
@@ -217,6 +219,7 @@ return { -- LSP Configuration & Plugins
 			"pyright", -- Python type checker
 			"black", -- Python formatter
 			"isort", -- Python import sorter
+			"prettier", -- html, css and more
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
