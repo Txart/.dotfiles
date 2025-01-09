@@ -159,6 +159,10 @@ PATH=$PATH:"$HOME/software/zellij"
 
 # golang
 export PATH=$PATH:/usr/local/go/bin
+
+# hledger
 export LEDGER_FILE=~/areas/dirus/2024.journal
 
+# zig
+export PATH=$PATH:"$HOME/software/zig-linux-x86_64-0.13.0"
 
