@@ -161,8 +161,11 @@ PATH=$PATH:"$HOME/software/zellij"
 export PATH=$PATH:/usr/local/go/bin
 
 # hledger
-export LEDGER_FILE=~/areas/dirus/2024.journal
+export LEDGER_FILE=~/areas/dirus/2025.journal
 
 # zig
 export PATH=$PATH:"$HOME/software/zig-linux-x86_64-0.13.0"
+
+# Ghostty from source
+export PATH=$PATH:"$HOME/software/ghostty/zig-out/bin"
 

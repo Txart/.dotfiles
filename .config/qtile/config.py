@@ -43,6 +43,7 @@ mod = "mod4"
 # terminal_single_instance = "kitty --single-instance"
 # terminal = "kitty"
 terminal = "/home/txart/software/alacritty/target/release/alacritty"
+terminal = "/home/txart/software/ghostty/zig-out/bin/ghostty"
 # terminal = "st # overwrite default terminal selection to choose st
 email_client = "neomutt"
 
