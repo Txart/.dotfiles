@@ -42,7 +42,7 @@ mod = "mod4"
 # single-instance makes the first terminal call as a sort of daemon; the rest are "childs" on top of that
 # terminal_single_instance = "kitty --single-instance"
 # terminal = "kitty"
-terminal = "/home/txart/software/alacritty/target/release/alacritty"
+terminal_alacritty = "/home/txart/software/alacritty/target/release/alacritty"
 terminal = "/home/txart/software/ghostty/zig-out/bin/ghostty"
 # terminal = "st # overwrite default terminal selection to choose st
 email_client = "neomutt"
@@ -151,7 +151,8 @@ groupnames = [
 ]
 
 # Autoinitialize
-groups[7] = Group("8", spawn="thunar")
+# groups[7] = Group("8", spawn=terminal + "thunar")
+groups[7] = Group("8", spawn=terminal + " -e yazi")
 # Add obsidian to auto init in last group
 groups[8] = Group("9", spawn="obsidian")
 
@@ -190,7 +191,7 @@ groups.append(
             DropDown(
                 "working_memory",
                 cmd=terminal
-                + " --command nvim /home/txart/Dropbox/SecondBrain/working_memory.md + ",
+                + " -e nvim /home/txart/Dropbox/SecondBrain/working_memory.md + ",
             ),
             # launch self_boss.py
             DropDown(
@@ -203,7 +204,7 @@ groups.append(
             DropDown(
                 "terminal",
                 cmd=terminal,
-                opacity=1,
+                opacity=1.0,
                 width=0.5,
                 height=0.5,
                 x=0.25,
