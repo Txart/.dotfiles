@@ -23,3 +23,6 @@ alias rmtt='gio trash'
 # different neovim configs
 alias nvim-quarto="NVIM_APPNAME=quarto-nvim-kickstarter nvim"
 alias nw="NVIM_APPNAME=nvim-writer nvim -c 'normal \`0'" # The strange thing at the end opens last file 
+
+# Pika backup software
+alias pika="flatpak run org.gnome.World.PikaBackup"
