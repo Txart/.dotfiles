@@ -152,7 +152,9 @@ groupnames = [
 
 # Autoinitialize
 # groups[7] = Group("8", spawn=terminal + "thunar")
-groups[7] = Group("8", spawn=terminal + " -e yazi")
+groups[7] = Group(
+    "8", spawn=terminal + " -e /home/txart/software/yazi/target/release/yazi"
+)
 # Add obsidian to auto init in last group
 groups[8] = Group("9", spawn="obsidian")
 
