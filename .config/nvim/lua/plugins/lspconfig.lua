@@ -134,7 +134,7 @@ return { -- LSP Configuration & Plugins
 		--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 		local servers = {
 			-- clangd = {},
-			gopls = {},
+			-- gopls = {},
 			zls = {},
 			rust_analyzer = {},
 			html = { filetypes = { "html" } },
@@ -155,6 +155,16 @@ return { -- LSP Configuration & Plugins
 								reportMissingImports = "none",
 								reportUnusedImport = "none",
 							},
+						},
+					},
+				},
+			},
+			deno = {
+				enable = true,
+				suggest = {
+					imports = {
+						hosts = {
+							["https://deno.land"] = true,
 						},
 					},
 				},
