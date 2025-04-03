@@ -135,6 +135,7 @@ return { -- LSP Configuration & Plugins
 		local servers = {
 			-- clangd = {},
 			-- gopls = {},
+			taplo = {},
 			zls = {},
 			rust_analyzer = {},
 			html = { filetypes = { "html" } },
