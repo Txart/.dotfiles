@@ -129,10 +129,20 @@ keys = [
     # Run rofi for fuzzy file selection!
     Key(
         [mod],
-        "s",
+        "o",
         lazy.spawn(
-            "sh -c 'open $(find / -type f 2>/dev/null | rofi -dmenu -p \"Find file:\")'"
+            'bash -c \'FILE=$(fd . $HOME --type f | rofi -dmenu -p "Open file: "); [ -n "$FILE" ] && xdg-open "$FILE"\''
         ),
+        desc="Open file with rofi",
+    ),
+    # Recent files with rofi
+    Key(
+        [mod, "shift"],
+        "o",
+        lazy.spawn(
+            'bash -c \'FILE=$(find $HOME -type f -mtime -7 | head -50 | rofi -dmenu -p "Recent: "); [ -n "$FILE" ] && xdg-open "$FILE"\''
+        ),
+        desc="Open recent file with rofi",
     ),
 ]
 
