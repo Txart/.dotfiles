@@ -163,10 +163,10 @@ groupnames = [
 # Autoinitialize
 # groups[7] = Group("8", spawn=terminal + "thunar")
 groups[7] = Group(
-    "8", spawn=terminal + " -e /home/txart/software/yazi/target/release/yazi"
+    "8", spawn=[terminal, "-e", "/home/txart/software/yazi/target/release/yazi"]
 )
 # Add obsidian to auto init in last group
-groups[8] = Group("9", spawn="obsidian")
+groups[8] = Group("9", spawn=["obsidian"])
 
 for i, g in enumerate(groups):
     g.label = groupnames[i]  # set group name
@@ -289,6 +289,7 @@ screens = [
                 widget.KeyboardLayout(
                     background=background_colors[0],
                     configured_keyboards=["us intl", "es"],
+                    update_interval=1,
                 ),
                 widget.Battery(
                     background=background_colors[1],
@@ -302,9 +303,11 @@ screens = [
                     background=background_colors[1],
                     measure_mem="G",
                     format="{MemUsed: .1f}{mm}/{MemTotal: .1f}{mm}",
+                    update_interval=5,
                 ),
                 widget.ThermalSensor(
                     background=background_colors[0],
+                    update_interval=5,
                 ),
                 widget.QuickExit(),
             ],
