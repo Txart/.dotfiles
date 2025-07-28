@@ -34,6 +34,7 @@ from libqtile.utils import guess_terminal
 
 from datetime import datetime
 
+
 # Color definitions for the bar widget backgrounds
 background_colors = ["d17eff", "76acff"]
 
@@ -100,7 +101,6 @@ keys = [
         lazy.layout.toggle_split(),
         desc="Toggle between split and unsplit sides of stack",
     ),
-    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     # Toggle between different layouts as defined below
     Key([mod], "m", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod, "control"], "c", lazy.window.kill(), desc="Kill focused window"),
@@ -129,7 +129,7 @@ keys = [
     # Run rofi for fuzzy file selection!
     Key(
         [mod],
-        "o",
+        "r",
         lazy.spawn(
             'bash -c \'FILE=$(fd . $HOME --type f | rofi -dmenu -p "Open file: "); [ -n "$FILE" ] && xdg-open "$FILE"\''
         ),
@@ -138,12 +138,21 @@ keys = [
     # Recent files with rofi
     Key(
         [mod, "shift"],
-        "o",
+        "r",
         lazy.spawn(
             'bash -c \'FILE=$(find $HOME -type f -mtime -7 | head -50 | rofi -dmenu -p "Recent: "); [ -n "$FILE" ] && xdg-open "$FILE"\''
         ),
         desc="Open recent file with rofi",
     ),
+    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+    Key(
+        [mod],
+        "y",
+        lazy.spawn(terminal + " -e /home/txart/software/yazi/target/release/yazi"),
+        desc="Launch yazi",
+    ),
+    Key([mod], "i", lazy.spawn("firefox"), desc="Launch firefox"),
+    Key([mod], "o", lazy.spawn("obsidian"), desc="Launch obsidian"),
 ]
 
 groups = [Group(i) for i in "123456789e"]
@@ -166,7 +175,7 @@ groups[7] = Group(
     "8", spawn=[terminal, "-e", "/home/txart/software/yazi/target/release/yazi"]
 )
 # Add obsidian to auto init in last group
-groups[8] = Group("9", spawn=["obsidian"])
+groups[8] = Group("9", spawn="obsidian")
 
 for i, g in enumerate(groups):
     g.label = groupnames[i]  # set group name
@@ -214,8 +223,8 @@ groups.append(
             ),
             # A terminal
             DropDown(
-                "terminal",
-                cmd=terminal,
+                "todos",
+                cmd=terminal + " -e todotxt-tui",
                 opacity=1.0,
                 width=0.5,
                 height=0.5,
@@ -230,7 +239,7 @@ keys.extend(
     [
         Key([mod], "0", lazy.group["scratchpad"].dropdown_toggle("working_memory")),
         Key([mod], "w", lazy.group["scratchpad"].dropdown_toggle("rodomopo")),
-        Key([mod], "t", lazy.group["scratchpad"].dropdown_toggle("terminal")),
+        Key([mod], "t", lazy.group["scratchpad"].dropdown_toggle("todos")),
     ]
 )
 
