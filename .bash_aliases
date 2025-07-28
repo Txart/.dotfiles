@@ -26,3 +26,10 @@ alias nw="NVIM_APPNAME=nvim-writer nvim -c 'normal \`0'" # The strange thing at 
 
 # Pika backup software
 alias pika="flatpak run org.gnome.World.PikaBackup"
+
+# Zotero
+alias zotero="./software/zotero/zotero"
+
+# bat
+alias bat="batcat"
+

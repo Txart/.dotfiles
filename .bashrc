@@ -166,10 +166,17 @@ export PATH=$PATH:/usr/local/go/bin
 export LEDGER_FILE=~/areas/dirus/2025.journal
 
 # zig
-export PATH=$PATH:"$HOME/software/zig-linux-x86_64-0.13.0"
+export PATH=$PATH:"$HOME/software/zig-x86_64-linux-0.14.1"
 
 # Ghostty from source
 export PATH=$PATH:"$HOME/software/ghostty/zig-out/bin"
 
 # Yazi
 export PATH=$PATH:"$HOME/software/yazi/target/release"
+
+# Qtile
+export PATH=$PATH:"$HOME/software/py-venvs/qtile_venv/bin"
+
+
+source '/home/txart/.bash_completions/talensinki.sh'
+
