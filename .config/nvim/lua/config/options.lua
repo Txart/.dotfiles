@@ -60,3 +60,6 @@ vim.opt.scrolloff = 10
 
 -- Set to true if you have a Nerd Font installed
 vim.g.have_nerd_font = true
+
+-- Set diagnostics inline
+vim.diagnostic.config({ virtual_text = true })
