@@ -6,6 +6,17 @@ require("config.keymaps")
 require("config.autocmds")
 require("config.lazy")
 
+-- My focused writing plugin
+require("focus-write").setup({
+	visible_lines = 3,
+})
+
+-- My navigation to python tests plugin
+local navigate_to_test = require("navigate-to-test")
+navigate_to_test.setup({
+	keymap = "<leader>gt", -- or whatever key combination you prefer
+})
+
 --
 -- NOTE: Here is where you install your plugins.
 require("lazy").setup({
