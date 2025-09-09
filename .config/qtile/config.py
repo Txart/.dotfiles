@@ -30,7 +30,7 @@ import subprocess
 from libqtile import bar, layout, widget, extension, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
-from libqtile.utils import guess_terminal
+from libqtile.utils import guess_terminal, send_notification
 
 from datetime import datetime
 
@@ -38,7 +38,7 @@ from datetime import datetime
 # Color definitions for the bar widget backgrounds
 background_colors = ["d17eff", "76acff"]
 
-mod = "mod4"
+mod = "mod5"
 # terminal = guess_terminal() # default terminal selection
 # single-instance makes the first terminal call as a sort of daemon; the rest are "childs" on top of that
 # terminal_single_instance = "kitty --single-instance"
@@ -90,7 +90,7 @@ keys = [
     Key([mod, "control"], "j", lazy.layout.shrink(), desc="Shrink window"),
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
     # Toggle floating windows:
-    Key([mod], "f", lazy.window.toggle_floating(), desc="Toggle floating"),
+    Key([mod, "control"], "f", lazy.window.toggle_floating(), desc="Toggle floating"),
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
     # Unsplit = 1 window displayed, like Max layout, but still with
@@ -127,14 +127,14 @@ keys = [
     # Run passmenu
     Key([mod], "p", lazy.spawn("passmenu"), desc="Launch pass in dmenu"),
     # Run rofi for fuzzy file selection!
-    Key(
-        [mod],
-        "r",
-        lazy.spawn(
-            'bash -c \'FILE=$(fd . $HOME --type f | rofi -dmenu -p "Open file: "); [ -n "$FILE" ] && xdg-open "$FILE"\''
-        ),
-        desc="Open file with rofi",
-    ),
+    # Key(
+    #     [mod],
+    #     "r",
+    #     lazy.spawn(
+    #         'bash -c \'FILE=$(fd . $HOME --type f | rofi -dmenu -p "Open file: "); [ -n "$FILE" ] && xdg-open "$FILE"\''
+    #     ),
+    #     desc="Open file with rofi",
+    # ),
     # Recent files with rofi
     Key(
         [mod, "shift"],
@@ -151,31 +151,29 @@ keys = [
         lazy.spawn(terminal + " -e /home/txart/software/yazi/target/release/yazi"),
         desc="Launch yazi",
     ),
-    Key([mod], "i", lazy.spawn("firefox"), desc="Launch firefox"),
-    Key([mod], "o", lazy.spawn("obsidian"), desc="Launch obsidian"),
 ]
 
-groups = [Group(i) for i in "123456789e"]
+groups = [
+    Group("w"),
+    Group("c"),
+    Group("t"),
+    Group("a"),
+    Group("d"),
+    Group("f"),
+    Group("o"),
+    Group("e"),
+]
 groupnames = [
-    "1-www",
-    "2-code",
-    "3-term",
+    "Www",
+    "Code",
+    "Term",
     "4",
     "5",
-    "6",
-    "7",
-    "8-file",
-    "9-Obs",
-    "e-mail",
+    "File",
+    "Obsi",
+    "Email",
 ]
 
-# Autoinitialize
-# groups[7] = Group("8", spawn=terminal + "thunar")
-groups[7] = Group(
-    "8", spawn=[terminal, "-e", "/home/txart/software/yazi/target/release/yazi"]
-)
-# Add obsidian to auto init in last group
-groups[8] = Group("9", spawn="obsidian")
 
 for i, g in enumerate(groups):
     g.label = groupnames[i]  # set group name
@@ -215,22 +213,22 @@ groups.append(
                 + " -e nvim /home/txart/Dropbox/SecondBrain/working_memory.md + ",
             ),
             # launch self_boss.py
-            DropDown(
-                "rodomopo",
-                cmd="kitty --hold rodomopo",
-                on_focus_lost_hide=True,
-                y=0.6,
-            ),
+            # DropDown(
+            #     "rodomopo",
+            #     cmd="kitty --hold rodomopo",
+            #     on_focus_lost_hide=True,
+            #     y=0.6,
+            # ),
             # A terminal
-            DropDown(
-                "todos",
-                cmd=terminal + " -e todotxt-tui",
-                opacity=1.0,
-                width=0.5,
-                height=0.5,
-                x=0.25,
-                y=0.25,
-            ),
+            # DropDown(
+            #     "todos",
+            #     cmd=terminal + " -e todotxt-tui",
+            #     opacity=1.0,
+            #     width=0.5,
+            #     height=0.5,
+            #     x=0.25,
+            #     y=0.25,
+            # ),
         ],
     )
 )
@@ -238,8 +236,8 @@ groups.append(
 keys.extend(
     [
         Key([mod], "0", lazy.group["scratchpad"].dropdown_toggle("working_memory")),
-        Key([mod], "w", lazy.group["scratchpad"].dropdown_toggle("rodomopo")),
-        Key([mod], "t", lazy.group["scratchpad"].dropdown_toggle("todos")),
+        # Key([mod], "w", lazy.group["scratchpad"].dropdown_toggle("rodomopo")),
+        # Key([mod], "t", lazy.group["scratchpad"].dropdown_toggle("todos")),
     ]
 )
 
