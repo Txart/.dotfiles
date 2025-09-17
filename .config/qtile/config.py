@@ -39,6 +39,7 @@ from datetime import datetime
 background_colors = ["d17eff", "76acff"]
 
 mod = "mod5"
+winkey = "mod4"
 # terminal = guess_terminal() # default terminal selection
 # single-instance makes the first terminal call as a sort of daemon; the rest are "childs" on top of that
 # terminal_single_instance = "kitty --single-instance"
@@ -46,7 +47,6 @@ mod = "mod5"
 terminal_alacritty = "/home/txart/software/alacritty/target/release/alacritty"
 terminal = "/home/txart/software/ghostty/zig-out/bin/ghostty"
 # terminal = "st # overwrite default terminal selection to choose st
-email_client = "neomutt"
 
 
 def take_screenshot_imagemagick(qtile):
@@ -100,8 +100,6 @@ keys = [
         lazy.layout.toggle_split(),
         desc="Toggle between split and unsplit sides of stack",
     ),
-    # Make focused window static/sticky (toggle)
-    Key([mod, "shift"], "s", lazy.window.static()),
     # Toggle between different layouts as defined below
     Key([mod], "m", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod, "control"], "c", lazy.window.kill(), desc="Kill focused window"),
@@ -110,7 +108,7 @@ keys = [
     # change default prompt to dmenu
     # Key([mod], "p", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     Key(
-        [mod],
+        [winkey],
         "space",
         lazy.run_extension(
             extension.DmenuRun(dmenu_prompt=">", dmenu_font="Andika-11")
@@ -118,7 +116,7 @@ keys = [
     ),
     # Self-made. Take screenshots using ImageMagick's import
     Key(
-        [mod],
+        [winkey],
         "Print",
         # lazy.function(take_screenshot_imagemagick),
         # desc="Take screenshots using ImageMagick's import command",
@@ -126,7 +124,7 @@ keys = [
         desc="Take screenshot using flameshot",
     ),
     # Run passmenu
-    Key([mod], "p", lazy.spawn("passmenu"), desc="Launch pass in dmenu"),
+    Key([winkey], "p", lazy.spawn("passmenu"), desc="Launch pass in dmenu"),
     # Run rofi for fuzzy file selection!
     # Key(
     #     [mod],
@@ -145,13 +143,14 @@ keys = [
         ),
         desc="Open recent file with rofi",
     ),
-    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+    Key([winkey], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     Key(
-        [mod],
+        [winkey],
         "y",
         lazy.spawn(terminal + " -e /home/txart/software/yazi/target/release/yazi"),
         desc="Launch yazi",
     ),
+    Key([winkey], "w", lazy.spawn("firefox"), desc="Launch firefox"),
     Key(
         [mod],
         "a",
