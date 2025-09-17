@@ -88,7 +88,6 @@ keys = [
     # will be to screen edge - window would shrink.
     Key([mod, "control"], "k", lazy.layout.grow(), desc="Grow window"),
     Key([mod, "control"], "j", lazy.layout.shrink(), desc="Shrink window"),
-    Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
     # Toggle floating windows:
     Key([mod, "control"], "f", lazy.window.toggle_floating(), desc="Toggle floating"),
     # Toggle between split and unsplit sides of stack.
@@ -101,6 +100,8 @@ keys = [
         lazy.layout.toggle_split(),
         desc="Toggle between split and unsplit sides of stack",
     ),
+    # Make focused window static/sticky (toggle)
+    Key([mod, "shift"], "s", lazy.window.static()),
     # Toggle between different layouts as defined below
     Key([mod], "m", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod, "control"], "c", lazy.window.kill(), desc="Kill focused window"),
@@ -151,14 +152,19 @@ keys = [
         lazy.spawn(terminal + " -e /home/txart/software/yazi/target/release/yazi"),
         desc="Launch yazi",
     ),
+    Key(
+        [mod],
+        "a",
+        lazy.spawn(lazy.spawn(terminal + " -e nvim +':Org capture'")),
+    ),
 ]
 
 groups = [
     Group("w"),
     Group("c"),
     Group("t"),
-    Group("a"),
-    Group("d"),
+    Group("4"),
+    Group("5"),
     Group("f"),
     Group("o"),
     Group("e"),
