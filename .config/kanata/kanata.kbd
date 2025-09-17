@@ -11,24 +11,21 @@
   ;; process-unmapped-keys can stay off because we fully define defsrc+layers.
 )
 
-;; A standard ~60% defsrc. Keep this order in all layers below.
+;; Keys read by kanata. Keep this order in all layers below.
 (defsrc
-  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
-  caps a    s    d    f    g    h    j    k    l    ;    '    ret
-  lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl lmet lalt           spc            ralt rmet rctl
+  caps a    s    d    f       j    k    l    ; 
+  lalt
 )
 
 (defalias
-  ;; Caps: tap CapsLock, hold Left Ctrl
-  capctl   (tap-hold 200 200 caps lctl)
+  ;; Caps: tap Esc, hold Left Ctrl
+  capctl   (tap-hold 200 200 esc lctl)
 
   ;; Left Alt: tap Left Alt, hold = while-held SYM layer
   ;; (using tap-hold-press so the layer engages as soon as you press another key)
   alt-sym  (tap-hold-press 200 200 lalt (layer-while-held sym))
 
-  ;; Parentheses via Shifted number keys (US-style) so they repeat when held.
+  ;; Parentheses and other symbols via Shifted number keys (US-style) so they repeat when held.
   ;; If your OS layout isn’t US, change these to whatever chord produces () there.
   lpar     S-9
   rpar     S-0
@@ -40,18 +37,12 @@
 
 ;; Base layer: everything transparent except the two dual-role keys
 (deflayer base
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  @capctl _    _    _    _    _    _    _    _    _    _    _   _
-  _    _    _    _    _    _    _    _    _    _    _    _
-  lctl lmet @alt-sym        spc            ralt rmet rctl
+  @capctl _    _    _      _     _    _    _    _    
+  @alt-sym
 )
 
 ;; SYM layer (active while Left Alt is held): only a/s are changed
 (deflayer sym
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    [    ]  @lpar @rpar _    -    @bb @plus @ast =    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _               _               _    _    _
+  _    [    ]  @lpar @rpar   @bb - @plus =    
+  _ 
 )
