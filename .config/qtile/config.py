@@ -151,6 +151,7 @@ keys = [
         desc="Launch yazi",
     ),
     Key([winkey], "w", lazy.spawn("firefox"), desc="Launch firefox"),
+    Key([winkey], "o", lazy.spawn("obsidian"), desc="Launch obsidian"),
     Key(
         [mod],
         "a",
