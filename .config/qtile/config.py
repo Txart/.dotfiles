@@ -45,6 +45,7 @@ winkey = "mod4"
 # terminal_single_instance = "kitty --single-instance"
 # terminal = "kitty"
 terminal_alacritty = "/home/txart/software/alacritty/target/release/alacritty"
+gnome_terminal = "gnome-terminal"
 terminal = "/home/txart/software/ghostty/zig-out/bin/ghostty"
 # terminal = "st # overwrite default terminal selection to choose st
 
@@ -153,9 +154,10 @@ keys = [
     Key([winkey], "w", lazy.spawn("firefox"), desc="Launch firefox"),
     Key([winkey], "o", lazy.spawn("obsidian"), desc="Launch obsidian"),
     Key(
-        [mod],
-        "a",
-        lazy.spawn(lazy.spawn(terminal + " -e nvim +':Org capture'")),
+        [winkey],
+        "c",
+        lazy.spawn("/home/txart/software/capture_to_working_memory.sh"),
+        desc="Launch working memory quick capture",
     ),
 ]
 
@@ -192,17 +194,12 @@ for i, g in enumerate(groups):
                 lazy.group[g.name].toscreen(),
                 desc="Switch to group {}".format(g.name),
             ),
-            # mod1 + shift + letter of group = switch to & move focused window to group
             Key(
                 [mod, "shift"],
                 g.name,
-                lazy.window.togroup(g.name, switch_group=True),
-                desc="Switch to & move focused window to group {}".format(g.name),
+                lazy.window.togroup(g.name),
+                desc="move focused window to group {}".format(g.name),
             ),
-            # Or, use below if you prefer not to switch to that group.
-            # # mod1 + shift + letter of group = move focused window to group
-            # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
-            #     desc="move focused window to group {}".format(i.name)),
         ]
     )
 
@@ -217,6 +214,27 @@ groups.append(
                 "working_memory",
                 cmd=terminal
                 + " -e nvim /home/txart/Dropbox/SecondBrain/working_memory.md + ",
+            ),
+            DropDown(
+                "orgmode_capture",
+                cmd=[
+                    terminal,
+                    "-e",
+                    "nvim",
+                    "-c",
+                    "\"lua require('orgmode').action('capture.prompt')\"",
+                ],
+            ),
+            DropDown(
+                "orgmode_agenda",
+                cmd=[
+                    terminal,
+                    "-e",
+                    "nvim",
+                    "-c",
+                    "\"lua require('orgmode').action('agenda.agenda')\"",
+                ],
+                height=0.6,
             ),
             # launch self_boss.py
             # DropDown(
@@ -242,6 +260,8 @@ groups.append(
 keys.extend(
     [
         Key([mod], "0", lazy.group["scratchpad"].dropdown_toggle("working_memory")),
+        Key([winkey], "t", lazy.group["scratchpad"].dropdown_toggle("orgmode_capture")),
+        Key([winkey], "a", lazy.group["scratchpad"].dropdown_toggle("orgmode_agenda")),
         # Key([mod], "w", lazy.group["scratchpad"].dropdown_toggle("rodomopo")),
         # Key([mod], "t", lazy.group["scratchpad"].dropdown_toggle("todos")),
     ]
@@ -249,7 +269,7 @@ keys.extend(
 
 layouts = [
     layout.MonadTall(
-        ratio=0.56,
+        ratio=0.50,
         border_focus=background_colors[0],
         # places new window on top of the stack, as the new active window
         new_client_position="top",
@@ -378,8 +398,8 @@ wl_input_rules = None
 # Execute the contents of the autostart.sh file once the first time qtile starts
 @hook.subscribe.startup_once
 def autostart():
-    home = os.path.expanduser("~/.config/qtile/autostart.sh")
-    subprocess.Popen([home])
+    autostart = os.path.expanduser("~/.config/qtile/autostart.sh")
+    subprocess.Popen([autostart])
 
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
