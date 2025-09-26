@@ -1,2 +1,5 @@
+[opener]
+edit = [{ run = "nvim $@", block = true, desc = "Edit in Neovim" }]
+
 [open]
 prepend_rules = [{ name = "*.html", use = ["open", "edit"] }]
