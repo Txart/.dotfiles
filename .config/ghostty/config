@@ -47,4 +47,7 @@ theme = catppuccin-mocha
  # remove title bar
 gtk-titlebar=false
 
+# Startup was slow for me. Here's the docs for this: https://ghostty.org/docs/config/reference
+gtk-single-instance = true
+
 font-size = 16
