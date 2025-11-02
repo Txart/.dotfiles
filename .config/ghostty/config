@@ -43,7 +43,7 @@
 # resize-overlay-duration = 4s 200ms
 #
 
-theme = catppuccin-mocha
+theme = Catppuccin Mocha
  # remove title bar
 gtk-titlebar=false
 
