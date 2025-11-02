@@ -4,8 +4,7 @@ alias apy='source .venv/bin/activate'
 # todo.sh -> t
 alias t='todo.sh'
 
-# cd -> zoxide
-alias cd='z'
+# zoxide return to latest dir
 alias zz='z -'
 
 # ls -> eza
