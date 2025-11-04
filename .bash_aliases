@@ -32,3 +32,5 @@ alias zotero="./software/zotero/zotero"
 # bat
 alias bat="batcat"
 
+# Reminder to use trash instead of rm
+alias rm="echo Consider using trash instead. If you insist, use the full path, i.e. 'usr/bin/rm', instead."
