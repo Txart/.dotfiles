@@ -14,7 +14,12 @@ return {
 				},
 				w = {
 					description = "Work Task",
-					template = "** TODO %?\n  SCHEDULED: %t\n",
+					template = "** NOW %?\n  SCHEDULED: %t\n",
+					target = "~/areas/orgfiles/txart/work.org",
+				},
+				s = {
+					description = "SUSI Task",
+					template = "** NOW %? :SUSI: \n  SCHEDULED: %t\n",
 					target = "~/areas/orgfiles/txart/work.org",
 				},
 
