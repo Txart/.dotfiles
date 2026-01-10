@@ -56,12 +56,19 @@ if [ -n "$force_color_prompt" ]; then
 	fi
 fi
 
+# if [ "$color_prompt" = yes ]; then
+# 	PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " (%s)")'; PS1='\[\e[38;5;39m\]\w/\[\e[38;5;183m\]${PS1_CMD1}\[\e[0m\] '
+# 	# PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+# else
+# 	# PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+# 	PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " (%s)")'; PS1='\W>${PS1_CMD1}'
+# fi
 if [ "$color_prompt" = yes ]; then
-	PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " (%s)")'; PS1='\[\e[38;5;39m\]\w/\[\e[38;5;183m\]${PS1_CMD1}\[\e[0m\] '
+	PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " (%s)")'; PS1='\n\[\e[38;5;240m\]$(printf "%.s─" $(seq 1 ${COLUMNS:-80}))\[\e[0m\]\n\[\e[38;5;39m\]\w/\[\e[38;5;183m\]${PS1_CMD1}\[\e[0m\] '
 	# PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
 	# PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-	PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " (%s)")'; PS1='\W>${PS1_CMD1}'
+	PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " (%s)")'; PS1='\n$(printf "%.s-" $(seq 1 50))\n\W>${PS1_CMD1}'
 fi
 unset color_prompt force_color_prompt
 
