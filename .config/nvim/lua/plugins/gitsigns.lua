@@ -9,4 +9,7 @@ return { -- Adds git related signs to the gutter, as well as utilities for manag
 			changedelete = { text = "~" },
 		},
 	},
+	keys = {
+		{ "<leader>gc", ":Gitsigns preview_hunk_inline<cr>", desc = "View git changes inline" },
+	},
 }
