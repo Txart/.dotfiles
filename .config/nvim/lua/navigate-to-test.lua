@@ -211,7 +211,7 @@ end
 -- Setup function to create keymapping
 function M.setup(opts)
 	opts = opts or {}
-	local keymap = opts.keymap or "<leader>gt"
+	local keymap = opts.keymap
 
 	vim.keymap.set("n", keymap, M.navigate_to_test, {
 		desc = "Navigate to test function",

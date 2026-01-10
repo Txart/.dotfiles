@@ -7,11 +7,10 @@ require("config.keymaps")
 require("config.autocmds")
 require("config.lazy")
 
-
 -- My navigation to python tests plugin
 local navigate_to_test = require("navigate-to-test")
 navigate_to_test.setup({
-	keymap = "<leader>gt", -- or whatever key combination you prefer
+	keymap = "<leader>t",
 })
 
 --
