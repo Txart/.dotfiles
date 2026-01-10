@@ -222,7 +222,7 @@ groups.append(
                     "-e",
                     "nvim",
                     "-c",
-                    "\"lua require('orgmode').action('capture.prompt')\"",
+                    "lua require('orgmode').action('capture.prompt')",
                 ],
             ),
             DropDown(
@@ -232,7 +232,7 @@ groups.append(
                     "-e",
                     "nvim",
                     "-c",
-                    "\"lua require('orgmode').action('agenda.agenda')\"",
+                    "lua require('orgmode').action('agenda.agenda')",
                 ],
                 height=0.6,
             ),
