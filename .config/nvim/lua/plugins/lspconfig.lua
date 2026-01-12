@@ -142,25 +142,25 @@ return { -- LSP Configuration & Plugins
 			cssls = {},
 			ruff = {},
 			ty = {},
-			pyright = {
-				settings = {
-					python = {
-						analysis = {
-							-- Disable all pyright diagnostics
-							-- diagnosticMode = "off",
-							-- Still keep type checking for completions
-							useLibraryCodeForTypes = true,
-							autoSearchPaths = true,
-							typeCheckingMode = "basic",
-							-- Disable import checking in Pyright
-							diagnosticSeverityOverrides = {
-								reportMissingImports = "none",
-								reportUnusedImport = "none",
-							},
-						},
-					},
-				},
-			},
+			-- pyright = {
+			-- 	settings = {
+			-- 		python = {
+			-- 			analysis = {
+			-- 				-- Disable all pyright diagnostics
+			-- 				-- diagnosticMode = "off",
+			-- 				-- Still keep type checking for completions
+			-- 				useLibraryCodeForTypes = true,
+			-- 				autoSearchPaths = true,
+			-- 				typeCheckingMode = "basic",
+			-- 				-- Disable import checking in Pyright
+			-- 				diagnosticSeverityOverrides = {
+			-- 					reportMissingImports = "none",
+			-- 					reportUnusedImport = "none",
+			-- 				},
+			-- 			},
+			-- 		},
+			-- 	},
+			-- },
 			deno = {
 				enable = true,
 				suggest = {
@@ -228,7 +228,7 @@ return { -- LSP Configuration & Plugins
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
 			"stylua", -- Used to format Lua code
-			"pyright", -- Python type checker
+			-- "pyright", -- Python type checker
 			"ruff", -- Python linter
 			"ty", -- Python type checker
 			"prettier", -- html, css and more
