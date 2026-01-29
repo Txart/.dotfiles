@@ -63,13 +63,26 @@ fi
 # 	# PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 # 	PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " (%s)")'; PS1='\W>${PS1_CMD1}'
 # fi
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+
 if [ "$color_prompt" = yes ]; then
-	PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " (%s)")'; PS1='\n\[\e[38;5;240m\]$(printf "%.s─" $(seq 1 ${COLUMNS:-80}))\[\e[0m\]\n\[\e[38;5;39m\]\w/\[\e[38;5;183m\]${PS1_CMD1}\[\e[0m\] '
-	# PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PROMPT_COMMAND='
+        PS1_CMD1=$(__git_ps1 " (%s)");
+        # Calculate the length of visible text (without color codes)
+        PS1_VISIBLE="${VIRTUAL_ENV:+(${VIRTUAL_ENV_PROMPT%% *}) }$(dirs +0)/${PS1_CMD1} ";
+        PS1_LENGTH=${#PS1_VISIBLE};
+        # Calculate remaining space for the line
+        LINE_LENGTH=$((${COLUMNS:-80} - PS1_LENGTH));
+        # Ensure minimum line length
+        [ $LINE_LENGTH -lt 10 ] && LINE_LENGTH=10;
+        PS1_LINE=$(printf "%.s─" $(seq 1 $LINE_LENGTH));
+    ';
+    PS1='\n${VIRTUAL_ENV:+(\[\e[38;5;15m\]${VIRTUAL_ENV_PROMPT%% *}\[\e[0m\]) }\[\e[38;5;39m\]\w/\[\e[38;5;183m\]${PS1_CMD1}\[\e[0m\] \[\e[38;5;240m\]${PS1_LINE}\[\e[0m\]\n\[\e[38;5;15m\]╰─>>\[\e[0m\] '
 else
-	# PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-	PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " (%s)")'; PS1='\n$(printf "%.s-" $(seq 1 50))\n\W>${PS1_CMD1}'
+    PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " (%s)")'; 
+    PS1='\n${VIRTUAL_ENV:+(${VIRTUAL_ENV_PROMPT%% *}) }\w/${PS1_CMD1} $(printf "%.s─" $(seq 1 40))\n--➜ '
 fi
+
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
@@ -198,3 +211,10 @@ cdi() {
         cd "$dir"
     fi
 }
+
+
+# Add github ssh key to key agent at startup
+if [ -z "$SSH_AUTH_SOCK" ]; then
+  eval "$(ssh-agent -s)" >/dev/null
+  ssh-add ~/.ssh/id_ed25519 >/dev/null 2>&1
+fi
