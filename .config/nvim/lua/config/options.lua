@@ -62,4 +62,7 @@ vim.opt.scrolloff = 10
 vim.g.have_nerd_font = true
 
 -- Set diagnostics inline
-vim.diagnostic.config({ virtual_text = true })
+vim.diagnostic.config({
+	virtual_text = true,
+	update_in_insert = false, -- prevents lsp diagnostics from updating while you are typing
+})
