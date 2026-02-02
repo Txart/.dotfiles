@@ -103,6 +103,21 @@ return { -- LSP Configuration & Plugins
 				--
 				-- When you move your cursor, the highlights will be cleared (the second autocommand).
 				local client = vim.lsp.get_client_by_id(event.data.client_id)
+
+				-- Enable format on save using Ruff
+				if client and client.name == "ruff" and client.supports_method("textDocument/formatting") then
+					vim.api.nvim_create_autocmd("BufWritePre", {
+						buffer = event.buf,
+						callback = function()
+							vim.lsp.buf.format({
+								bufnr = event.buf,
+								filter = function(c)
+									return c.name == "ruff"
+								end,
+							})
+						end,
+					})
+				end
 				if client and client.server_capabilities.documentHighlightProvider then
 					vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 						buffer = event.buf,
@@ -137,30 +152,39 @@ return { -- LSP Configuration & Plugins
 			-- gopls = {},
 			taplo = {},
 			zls = {},
-			rust_analyzer = {},
-			html = { filetypes = { "html" } },
-			cssls = {},
-			ruff = {},
-			ty = {},
-			pyright = {
-				settings = {
-					python = {
-						analysis = {
-							-- Disable all pyright diagnostics
-							-- diagnosticMode = "off",
-							-- Still keep type checking for completions
-							useLibraryCodeForTypes = true,
-							autoSearchPaths = true,
-							typeCheckingMode = "basic",
-							-- Disable import checking in Pyright
-							diagnosticSeverityOverrides = {
-								reportMissingImports = "none",
-								reportUnusedImport = "none",
-							},
-						},
-					},
+			rust_analyzer = {
+				cargo = {
+					target = "wasm32-unknown-unknown",
+					allTargets = false,
+				},
+				check = {
+					command = "clippy",
+					target = "wasm32-unknown-unknown",
 				},
 			},
+			html = { filetypes = { "html" } },
+			cssls = {},
+			ruff = { init_options = { settings = { format = {}, lint = { run = "onSave" } } } },
+			ty = {},
+			-- pyright = {
+			-- 	settings = {
+			-- 		python = {
+			-- 			analysis = {
+			-- 				-- Disable all pyright diagnostics
+			-- 				-- diagnosticMode = "off",
+			-- 				-- Still keep type checking for completions
+			-- 				useLibraryCodeForTypes = true,
+			-- 				autoSearchPaths = true,
+			-- 				typeCheckingMode = "basic",
+			-- 				-- Disable import checking in Pyright
+			-- 				diagnosticSeverityOverrides = {
+			-- 					reportMissingImports = "none",
+			-- 					reportUnusedImport = "none",
+			-- 				},
+			-- 			},
+			-- 		},
+			-- 	},
+			-- },
 			deno = {
 				enable = true,
 				suggest = {
@@ -228,7 +252,7 @@ return { -- LSP Configuration & Plugins
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
 			"stylua", -- Used to format Lua code
-			"pyright", -- Python type checker
+			-- "pyright", -- Python type checker
 			"ruff", -- Python linter
 			"ty", -- Python type checker
 			"prettier", -- html, css and more
