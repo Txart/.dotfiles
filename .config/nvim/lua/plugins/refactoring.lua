@@ -7,7 +7,7 @@ return {
 	config = function()
 		require("refactoring").setup({})
 
-		vim.keymap.set("x", "<leader>re", ":Refactor extract to function")
-		vim.keymap.set("x", "<leader>re", ":Refactor extract to variable")
+		vim.keymap.set("x", "<leader>rf", ":Refactor extract ")
+		vim.keymap.set("x", "<leader>rv", ":Refactor extract_var ")
 	end,
 }
