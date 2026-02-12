@@ -5,10 +5,9 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 	},
 	config = function()
-		require("refactoring").setup()
+		require("refactoring").setup({})
 
-		vim.keymap.set("v", "<leader>r", function()
-			require("refactoring").refactor("Extract Function")
-		end, { desc = "(R)efactor to function" })
+		vim.keymap.set("x", "<leader>re", ":Refactor extract to function")
+		vim.keymap.set("x", "<leader>re", ":Refactor extract to variable")
 	end,
 }
