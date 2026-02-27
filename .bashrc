@@ -218,3 +218,6 @@ if ! pgrep -u "$USER" ssh-agent > /dev/null; then
   eval "$(ssh-agent -s)"
   ssh-add ~/.ssh/id_ed25519
 fi
+
+# opencode
+export PATH=/home/txart/.opencode/bin:$PATH
