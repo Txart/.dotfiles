@@ -38,7 +38,7 @@
 ;; Base layer: everything transparent except the two dual-role keys
 (deflayer base
   ;;@capctl _    _    _      _     _    _    _    _    
-  ;;_       _    _    _      _     _    _    _    _    
+    _       _    _    _      _     _    _    _    _    
   @alt-sym
 )
 
