@@ -183,7 +183,7 @@ PATH=$PATH:"$HOME/software/zellij"
 export PATH=$PATH:/usr/local/go/bin
 
 # hledger
-export LEDGER_FILE=~/areas/dirus/2025.journal
+export LEDGER_FILE=~/areas/dirus/main.journal
 
 # zig
 export PATH=$PATH:"$HOME/software/zig-x86_64-linux-0.14.1"
@@ -214,10 +214,7 @@ cdi() {
 
 
 # Add github ssh key to key agent at startup
-if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-  eval "$(ssh-agent -s)"
-  ssh-add ~/.ssh/id_ed25519
-fi
+eval "$(keychain --eval --quiet id_ed25519)"
 
 # opencode
 export PATH=/home/txart/.opencode/bin:$PATH
