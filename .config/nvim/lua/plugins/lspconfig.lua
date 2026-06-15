@@ -83,6 +83,14 @@ return {
 			},
 		})
 
+		vim.lsp.config("julials", { settings = {
+			julia = {
+				format = {
+					indent = 4,
+				},
+			},
+		} })
+
 		---------------------------------
 		-- Enable servers
 		---------------------------------
@@ -96,6 +104,7 @@ return {
 			"html",
 			"ruff",
 			"ty",
+			"julials",
 		})
 	end,
 }

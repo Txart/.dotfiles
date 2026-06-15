@@ -16,6 +16,7 @@ return {
 				"ty",
 				"prettier",
 				"stylua",
+				"julia-lsp",
 			},
 		},
 	},
