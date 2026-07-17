@@ -116,7 +116,10 @@ keys = [
         [winkey],
         "space",
         lazy.run_extension(
-            extension.DmenuRun(dmenu_prompt=">", dmenu_font="Andika-11")
+            extension.DmenuRun(
+                dmenu_prompt=">",
+                dmenu_font="Andika-11",
+            )
         ),
     ),
     # Self-made. Take screenshots using ImageMagick's import
