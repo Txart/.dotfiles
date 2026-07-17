@@ -82,14 +82,21 @@ return {
 				},
 			},
 		})
-
-		vim.lsp.config("julials", { settings = {
-			julia = {
-				format = {
-					indent = 4,
+		vim.lsp.config(
+			"julials",
+			{
+				capabilities = capabilities,
+				settings = {
+					cmd = {
+						"julia",
+						"--startup-file=no",
+						"--history-file=no",
+						"-e",
+						"using LanguageServer; runserver()",
+					},
 				},
-			},
-		} })
+			}
+		)
 
 		---------------------------------
 		-- Enable servers
