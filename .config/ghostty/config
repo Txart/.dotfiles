@@ -51,3 +51,6 @@ gtk-titlebar=false
 gtk-single-instance = true
 
 font-size = 16
+
+# Set fish as the default shell to use with ghostty
+# command = /usr/bin/fish
