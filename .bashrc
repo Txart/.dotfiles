@@ -213,8 +213,26 @@ cdi() {
 }
 
 
-# Add github ssh key to key agent at startup
-eval "$(keychain --eval --quiet id_ed25519)"
 
 # opencode
 export PATH=/home/txart/.opencode/bin:$PATH
+
+# >>> juliaup initialize >>>
+
+# !! Contents within this block are managed by juliaup !!
+
+case ":$PATH:" in
+    *:/home/txart/.juliaup/bin:*)
+        ;;
+
+    *)
+        export PATH=/home/txart/.juliaup/bin${PATH:+:${PATH}}
+        ;;
+esac
+# Tab completion for juliaup and julia channel selection
+[ -f "/home/txart/.julia/juliaup/completions/bash.sh" ] && source "/home/txart/.julia/juliaup/completions/bash.sh"
+
+# <<< juliaup initialize <<<
+
+# Pi
+export PATH="/home/txart/.local/share/pi-node/node-v22.23.1-linux-x64/bin:$PATH"

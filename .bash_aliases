@@ -34,3 +34,13 @@ alias bat="batcat"
 
 # Reminder to use trash instead of rm
 alias rm="echo Consider using trash instead. If you insist, use the full path, i.e. 'usr/bin/rm', instead."
+
+# Set screen temperatures
+alias ,day="xsct 0 1"
+alias ,night="xsct 2500 0.5"
+
+# Zola
+alias zola="/home/txart/software/zola-v0.22.1-x86_64-unknown-linux-gnu/zola"
+
+# Added key for ssh git operations
+alias gitkey='ssh-add -c ~/.ssh/id_ed25519'

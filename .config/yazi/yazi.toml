@@ -1,5 +1,10 @@
 [opener]
 edit = [{ run = "nvim $@", block = true, desc = "Edit in Neovim" }]
+audio = [{ run = 'mpv --force-window=yes "$@"', block = false }]
+tiff = [{ run = 'feh "$@"', block = false, desc = "View with feh" }]
 
 [open]
-prepend_rules = [{ name = "*.html", use = ["open", "edit"] }]
+prepend_rules = [
+  { name = "*.html", use = ["open", "edit"] },
+  { name = "*.tiff", use = ["tiff"] },
+]
