@@ -236,3 +236,11 @@ esac
 
 # Pi
 export PATH="/home/txart/.local/share/pi-node/node-v22.23.1-linux-x64/bin:$PATH"
+
+# Always run claude without ssh privileges
+claude() {
+    (
+        unset SSH_AUTH_SOCK SSH_AGENT_PID
+        command claude "$@"
+    )
+}
