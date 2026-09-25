@@ -82,21 +82,26 @@ return {
 				},
 			},
 		})
-		vim.lsp.config(
-			"julials",
-			{
-				capabilities = capabilities,
-				settings = {
-					cmd = {
-						"julia",
-						"--startup-file=no",
-						"--history-file=no",
-						"-e",
-						"using LanguageServer; runserver()",
-					},
+		vim.lsp.config("julials", {
+			capabilities = capabilities,
+			settings = {
+				cmd = {
+					"julia",
+					"--startup-file=no",
+					"--history-file=no",
+					"-e",
+					"using LanguageServer; runserver()",
 				},
-			}
-		)
+			},
+		})
+
+		vim.lsp.config("tinymist", {
+			settings = {
+				formatterMode = "typstyle",
+				exportPdf = "never", -- or "onSave" / "onType"
+				semanticTokens = "disable", -- optional, if you prefer Tree-sitter highlighting
+			},
+		})
 
 		---------------------------------
 		-- Enable servers
@@ -112,6 +117,7 @@ return {
 			"ruff",
 			"ty",
 			"julials",
+			"tinymist",
 		})
 	end,
 }
