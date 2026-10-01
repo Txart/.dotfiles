@@ -44,3 +44,6 @@ alias zola="/home/txart/software/zola-v0.22.1-x86_64-unknown-linux-gnu/zola"
 
 # Added key for ssh git operations
 alias gitkey='ssh-add -c ~/.ssh/id_ed25519'
+
+# jlab: Run jupyter lab with extensions
+alias jlab='uv run --with jupyterlab-vim --with jupyterlab-lsp --with basedpyright --with jupyterlab-code-formatter jupyter lab'
