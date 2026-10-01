@@ -1,0 +1,11 @@
+A hard break with two spaces.  
+Next line. Another sentence.  
+And a backslash.\
+Last line. The end.
+--- becomes ---
+A hard break with two spaces.  
+Next line.
+Another sentence.  
+And a backslash.\
+Last line.
+The end.

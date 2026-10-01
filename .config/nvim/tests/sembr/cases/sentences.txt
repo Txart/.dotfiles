@@ -1,0 +1,12 @@
+This is the first sentence. This is the second one. Is this a question? Yes! And "this is quoted." Then (this is in parentheses.) Then **this is bold.** Wait... Several spaces follow.   The end.
+--- becomes ---
+This is the first sentence.
+This is the second one.
+Is this a question?
+Yes!
+And "this is quoted."
+Then (this is in parentheses.)
+Then **this is bold.**
+Wait...
+Several spaces follow.
+The end.

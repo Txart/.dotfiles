@@ -1,0 +1,7 @@
+See e.g. Scots pine in Fig. A1 of Laiho et al. (2020). Compare i.e. Norway spruce vs. Scots pine. Dr. Smith and J. K. Rowling agree (e.g. Here). It doesn't. So there.
+--- becomes ---
+See e.g. Scots pine in Fig. A1 of Laiho et al. (2020).
+Compare i.e. Norway spruce vs. Scots pine.
+Dr. Smith and J. K. Rowling agree (e.g. Here).
+It doesn't.
+So there.

@@ -1,0 +1,9 @@
+Not inside `code. With a period` or [link. Text](http://example.com/a.b). Version 1.2.3 is fine. A span `that. Wraps
+over. Lines` is kept whole. And [[Wiki. Links]] too. The end.
+--- becomes ---
+Not inside `code. With a period` or [link. Text](http://example.com/a.b).
+Version 1.2.3 is fine.
+A span `that. Wraps
+over. Lines` is kept whole.
+And [[Wiki. Links]] too.
+The end.

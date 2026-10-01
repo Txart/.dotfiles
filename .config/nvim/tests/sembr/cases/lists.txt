@@ -1,0 +1,13 @@
+- Item one. It has two sentences.
+  A continuation line. With two more.
+- [ ] A task. Second sentence.
+    - A nested item. Second. Third.
+
+1. An ordered item. Second sentence.
+--- becomes ---
+- Item one. It has two sentences.
+  A continuation line. With two more.
+- [ ] A task. Second sentence.
+    - A nested item. Second. Third.
+
+1. An ordered item. Second sentence.

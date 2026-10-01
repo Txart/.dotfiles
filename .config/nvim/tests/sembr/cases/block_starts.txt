@@ -1,0 +1,8 @@
+A new line must not start with a list marker. - dash. + plus. * star. 1. one. 1) two. Nor a heading. # hash. ## two. Nor a quote. > quote. Nor a fence. ```x``` tick. ~~~ tilde. Nor html. <div> tag. The end.
+--- becomes ---
+A new line must not start with a list marker. - dash. + plus. * star. 1. one. 1) two.
+Nor a heading. # hash. ## two.
+Nor a quote. > quote.
+Nor a fence. ```x``` tick. ~~~ tilde.
+Nor html. <div> tag.
+The end.

@@ -1,0 +1,18 @@
+A capital starts one. Älä unohda non-ASCII capitals. `code` can start one. **Bold** can start one. _Emphasis_ can too. [A link](x) can. "A quote" can. (A parenthesis can.) #123 can. 42 can. 11a can.
+
+A period before a lowercase word is not an end. so this stays. But this moves.
+--- becomes ---
+A capital starts one.
+Älä unohda non-ASCII capitals.
+`code` can start one.
+**Bold** can start one.
+_Emphasis_ can too.
+[A link](x) can.
+"A quote" can.
+(A parenthesis can.)
+#123 can.
+42 can.
+11a can.
+
+A period before a lowercase word is not an end. so this stays.
+But this moves.

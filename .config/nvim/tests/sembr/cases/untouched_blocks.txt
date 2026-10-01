@@ -1,0 +1,43 @@
+---
+title: Frontmatter. Not a sentence. Left alone.
+---
+
+# A heading. With a period. Left alone.
+
+> A block quote. Left alone. Really.
+
+```python
+x = 1. Code is not touched. At all.
+```
+
+    Indented code. Not touched. Either.
+
+| a. B | c. D |
+|------|------|
+| e. F | g. H |
+
+<div>
+Html. Left alone. Too.
+</div>
+--- becomes ---
+---
+title: Frontmatter. Not a sentence. Left alone.
+---
+
+# A heading. With a period. Left alone.
+
+> A block quote. Left alone. Really.
+
+```python
+x = 1. Code is not touched. At all.
+```
+
+    Indented code. Not touched. Either.
+
+| a. B | c. D |
+|------|------|
+| e. F | g. H |
+
+<div>
+Html. Left alone. Too.
+</div>

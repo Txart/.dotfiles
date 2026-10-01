@@ -1,0 +1,10 @@
+A sentence that was wrapped
+by hand stays wrapped. But this moves.
+Already one per line.
+Stays as it is.
+--- becomes ---
+A sentence that was wrapped
+by hand stays wrapped.
+But this moves.
+Already one per line.
+Stays as it is.

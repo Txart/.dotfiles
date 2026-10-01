@@ -23,8 +23,17 @@ return { -- Autoformat
 				lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
 			}
 		end,
+		formatters = {
+			-- One sentence per line, see lua/sembr.lua
+			sembr = {
+				format = function(self, ctx, lines, callback)
+					callback(nil, require("sembr").format_lines(lines))
+				end,
+			},
+		},
 		formatters_by_ft = {
 			lua = { "stylua" },
+			markdown = { "sembr" },
 			julia = { "JuliaFormatter" },
 			html = { "prettier" },
 			htmldjango = { "prettier" },
