@@ -47,3 +47,7 @@ alias gitkey='ssh-add -c ~/.ssh/id_ed25519'
 
 # jlab: Run jupyter lab with extensions
 alias jlab='uv run --with jupyterlab-vim --with jupyterlab-lsp --with basedpyright --with jupyterlab-code-formatter --with ipywidgets --with ipyfilechooser jupyter lab'
+
+# csc ssh certificates helper tool
+# See docs at: https://docs.csc.fi/computing/connecting/ssh-keys/#signing-public-key
+alias csc='python /home/txart/projects/hiket/certificate-helper-tool/csc_cert.py -u urzainki /home/txart/.ssh/csc.pub'
