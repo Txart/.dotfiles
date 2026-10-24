@@ -407,6 +407,7 @@ wl_input_rules = None
 def autostart():
     autostart = os.path.expanduser("~/.config/qtile/autostart.sh")
     subprocess.Popen([autostart])
+    subprocess.Popen(["anki"])
 
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
