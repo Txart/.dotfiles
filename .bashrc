@@ -200,19 +200,6 @@ export PATH=$PATH:"$HOME/software/py-venvs/qtile_venv/bin"
 
 source '/home/txart/.bash_completions/talensinki.sh'
 
-# Function for directory navigation, using zoxide with fzf
-cdi() {
-    local dir=$(zoxide query --list | fzf \
-        --height 40% \
-        --reverse \
-        --preview 'ls -la {}' \
-        --preview-window=right:50%:wrap)
-    if [[ -n $dir ]]; then
-        cd "$dir"
-    fi
-}
-
-
 
 # opencode
 export PATH=/home/txart/.opencode/bin:$PATH
