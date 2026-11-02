@@ -25,10 +25,6 @@
 # SOFTWARE.
 
 import os
-
-os.environ["PATH"] = (
-    f"{os.environ['HOME']}/software/yazi/target/release:" + os.environ.get("PATH", "")
-)
 import subprocess
 
 from libqtile import bar, layout, widget, extension, hook

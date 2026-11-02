@@ -5,6 +5,11 @@ tiff = [{ run = 'feh "$@"', block = false, desc = "View with feh" }]
 
 [open]
 prepend_rules = [
-  { name = "*.html", use = ["open", "edit"] },
-  { name = "*.tiff", use = ["tiff"] },
+  { url = "*.html", use = [
+    "open",
+    "edit",
+  ] },
+  { url = "*.tiff", use = [
+    "tiff",
+  ] },
 ]

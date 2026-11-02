@@ -191,9 +191,6 @@ export PATH=$PATH:"$HOME/software/zig-x86_64-linux-0.14.1"
 # Ghostty from source
 export PATH=$PATH:"$HOME/software/ghostty/zig-out/bin"
 
-# Yazi
-export PATH=$PATH:"$HOME/software/yazi/target/release"
-
 # Qtile
 export PATH=$PATH:"$HOME/software/py-venvs/qtile_venv/bin"
 
